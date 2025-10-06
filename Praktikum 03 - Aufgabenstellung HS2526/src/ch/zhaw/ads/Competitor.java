@@ -48,20 +48,25 @@ public class Competitor implements Comparable<Competitor> {
 
     @Override
     public int compareTo(Competitor o) {
-        // TODO Implement
-        return  0;
+        return Long.compare(parseTime(this.time), parseTime(o.time));
     }
 
     @Override
-    public boolean equals (Object o) {
-        // TODO Implement
-        return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Competitor that = (Competitor) o;
+        return rank == that.rank &&
+               name.equals(that.name) &&
+               time.equals(that.time);
     }
 
     @Override
     public int hashCode() {
-        // TODO Implement
-        return 0;
+        int result = name.hashCode();
+        result = 31 * result + time.hashCode();
+        result = 31 * result + rank;
+        return result;
     }
 
 }
@@ -70,7 +75,7 @@ class AlphaComparatorCompetitor implements Comparator<Competitor> {
 
     @Override
     public int compare(Competitor o1, Competitor o2) {
-        // TODO Implement
+        o1.compareTo(o2);
         int c = 0;
         return c;
     }
