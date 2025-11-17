@@ -61,9 +61,7 @@ public class RouteServer implements CommandExecutor {
                     dest.setPrev(current);
                     pq.add(dest);
                 }
-
             }
-
         }
     }
 
